@@ -1,3 +1,4 @@
+// Passport:實作登入功能 
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcryptjs')

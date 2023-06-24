@@ -9,7 +9,7 @@ const User = db.User
 router.get('/login', (req, res) => {
   res.render('login')
 })
-
+//檢查登入狀態
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login'
@@ -46,7 +46,9 @@ router.post('/register', (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-  res.send('logout')
+  //logOut是Passport.js提供清出session的函式
+  req.logOut()
+  res.redirect('/users/login')
 })
 
 module.exports = router
